@@ -4,7 +4,7 @@ install.packages("ggplot2")
 # Load ggplot2 library into R session
 library(ggplot2)
 
-# -------------------- Data Architecture(Yash Raut) --------------------
+# -------------------- Data Architecture --------------------
 
 getwd()
 
@@ -39,7 +39,7 @@ sum(duplicated(data))
 # Create new column to identify sequels based on movie name
 data_clean$is_sequel <- ifelse(grepl("2|II|III|IV|V|Part", data_clean$name),"Sequel", "Original")
 
-# -------------------- Exploratory Insights(Anjali Yadav) --------------------
+# -------------------- Exploratory Insights --------------------
 library(ggplot2) #Box plot
 
 # Create boxplot comparing box office of Originals vs Sequels
@@ -56,7 +56,7 @@ ggplot(data_clean, aes(x = is_sequel, y = box_office, fill = is_sequel)) +
 ggsave("budget_vs_box_office.png", width = 8, height = 5, dpi = 300)
 
 
-# -------------------- Modeling Approach(Pragati Yadav) --------------------
+# -------------------- Modeling Approach --------------------
 
 # Install Random Forest package
 install.packages("randomForest")
@@ -126,7 +126,7 @@ train_index <- createDataPartition(
 train_data <- model_data[train_index, ]
 test_data  <- model_data[-train_index, ]
 
-# -------------------- Random Forest Model(Yash Telge) --------------------
+# -------------------- Random Forest Model --------------------
 library(randomForest)
 
 # Train Random Forest model using training data
@@ -137,7 +137,7 @@ rf_model <- randomForest(
   importance = TRUE        # Enable feature importance
 )
 
-# -------------------- Model Evaluation(Rajnish Yadav) --------------------
+# -------------------- Model Evaluation --------------------
 
 # Predict rating level for test data
 predictions <- predict(rf_model, test_data)
